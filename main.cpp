@@ -47,10 +47,8 @@ void RunCommandWithAdminPrivileges(const char* command, const char* parameters) 
         WaitForSingleObject(shellExecuteInfo.hProcess, INFINITE);
 
         Sleep(5000);
-
         // Close the handle to the process
         CloseHandle(shellExecuteInfo.hProcess);
-
         Sleep(5000);
 
     } else {
