@@ -13,6 +13,12 @@ void RestartComputer() {
 }
 
 void RunCommandWithAdminPrivileges(const char* command, const char* parameters) {
+
+    // added the new parameters string to include '&& timeout 2' to wait for 2 seconds before closing the window
+    std::string newParameters = std::string(parameters) + " && timeout /t 2";
+    // added the new parameters string to include '&& pause' to keep the window open
+    //std::string newParameters = std::string(parameters) + " && pause";
+
     // Initializing the SHELLEXECUTEINFO structure to zero
     SHELLEXECUTEINFO shellExecuteInfo;
     memset(&shellExecuteInfo, 0, sizeof(shellExecuteInfo));
@@ -33,7 +39,12 @@ void RunCommandWithAdminPrivileges(const char* command, const char* parameters) 
     shellExecuteInfo.lpFile = command;
 
     // Specifying the command-line parameters for the program
-    shellExecuteInfo.lpParameters = parameters;
+        // this is the old way, leaving here for history purposes
+    //shellExecuteInfo.lpParameters = parameters;
+
+    // Specifying the command-line parameters for the program
+        // new way - so we can use && timeout 2
+    shellExecuteInfo.lpParameters = newParameters.c_str();
 
     // Using the current directory for the new process
     shellExecuteInfo.lpDirectory = nullptr;
@@ -41,15 +52,15 @@ void RunCommandWithAdminPrivileges(const char* command, const char* parameters) 
     // Make the window visible (SW_HIDE to hide the window)
     shellExecuteInfo.nShow = SW_SHOWNORMAL;
 
-    // Attempt to execute the command with the specified parameters and elevated privileges
+    // trying to execute the command with the specified parameters and elevated privileges
     if (ShellExecuteEx(&shellExecuteInfo)) {
         // Wait for the process to complete
         WaitForSingleObject(shellExecuteInfo.hProcess, INFINITE);
 
-        Sleep(5000);
         // Close the handle to the process
         CloseHandle(shellExecuteInfo.hProcess);
-        Sleep(5000);
+
+        Sleep(1000);
 
     } else {
         // Print an error message if the command execution fails
@@ -69,14 +80,14 @@ int main() {
     std::cout << "Starting Deployment Image Servicing and Management (DISM) RestoreHealth..." << std::endl;
     RunCommandWithAdminPrivileges("cmd.exe", "/c dism /online /cleanup-image /restorehealth");
 
-    // Prompt the user to restart the computer
+    // Prompts the user to restart the computer
     int restartChoice = PromptForRestart();
 
     if (restartChoice == IDYES) {
         // Restart the computer
         RestartComputer();
     } else if (restartChoice == IDNO) {
-        // User chose to restart later
+        // User choses to restart later
         std::cout << "You chose to restart later. Closing the program." << std::endl;
     } else {
         // User closed the dialog or chose Cancel
