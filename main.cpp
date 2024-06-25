@@ -14,8 +14,8 @@ void RestartComputer() {
 
 void RunCommandWithAdminPrivileges(const char* command, const char* parameters) {
 
-    // added the new parameters string to include '&& timeout 2' to wait for 2 seconds before closing the window
-    std::string newParameters = std::string(parameters) + " && timeout /t 2";
+    // added the new parameters string to include '&& timeout 2' to wait for 5 seconds before closing the window
+    std::string newParameters = std::string(parameters) + " && timeout /t 5";
     // added the new parameters string to include '&& pause' to keep the window open
     //std::string newParameters = std::string(parameters) + " && pause";
 
