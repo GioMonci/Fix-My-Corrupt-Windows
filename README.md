@@ -1,8 +1,8 @@
 # Fix-My-Corrupt-Windows
 
 My friend Juan Carter always has corrupt Windows files. This little program is designed to fix issues related to corrupt Windows files. 
-However, it works under the pretense that System File Checker (SFC) and Deployment Image Servicing and Management (DISM) are still functioning on your PC. 
-If SFC and DISM are themselves corrupt, this program won't be able to help. Run the program and then restart your PC, and all should work like a charm.
+However, it works under the pretense that System File Checker (SFC) and Deployment Image Servicing, Management (DISM), and Check Disk (CHKDSK) are still functioning on your PC. 
+If SFC, DISM, and CHKDSK are themselves corrupt, this program won't be able to help. Run the program and then restart your PC, and all should work like a charm.
 
 ## What does this program do?
 
@@ -59,9 +59,17 @@ This scans and repairs corrupted system files.
   dism /online /cleanup-image /restorehealth
   ```
   This repairs the Windows image.
+  
+3. **Check Disk (CHKDSK):**
+- CheckDisk:
+  ```
+  chkdsk C: /f /r /x
+  ```
+Scans your hard drive for file system errors.
 
 ## Notes
 
+- Read the instructions in the program thoroughly
 - Ensure you run the program with administrative privileges.
 - Restart your computer after running the program to apply the changes.
 - If you encounter any issues, make sure that SFC and DISM are not corrupted themselves.
