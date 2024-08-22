@@ -10,7 +10,8 @@ This program opens CMD as an administrator and runs a series of commands to fix 
 
 ## How to use it?
 
-### Method 1: Using the EXE file
+### ~~Method 1: Using the EXE file~~
+Note: Marked as virus until I can get it signed, just complie for now!
 
 #### Steps:
 
