@@ -9,14 +9,11 @@ If SFC, DISM, and CHKDSK are themselves corrupt, this program won't be able to h
     - [Method 1: Using the EXE file](#method-1-using-the-exe-file)
     - [Method 2: Compiling the Files Yourself](#method-2-compiling-the-files-yourself)
 3. [Prerequisites](#prerequisites)
-4. [Download Project Files](#download-project-files)
-5. [Install MinGW Compiler](#install-mingw-compiler)
-6. [Compile and Run the Program](#compile-and-run-the-program)
-7. [Commands Used](#commands-used)
-8. [Notes](#notes)
-9. [Troubleshooting](#troubleshooting)
-10. [Disclaimer](#disclaimer)
-11. [License](#license)
+4. [Steps](#steps)
+5. [Commands Used](#commands-used)
+6. [Notes](#notes)
+7. [Disclaimer](#disclaimer)
+8. [License](#license)
 
 
 ## What does this program do?
@@ -54,11 +51,7 @@ Before you can run this project, you will need:
 
 #### Option 1: Using Git
 
-1. Clone the repository from GitHub. Open the command prompt and run the following command:
-
-    ```bash
-    git clone https://github.com/GioMonci/Fix-My-Corrupt-Windows.git
-    ```
+1. Clone the repository from GitHub.
 
 2. Navigate to the downloaded project directory:
 
@@ -76,62 +69,23 @@ Before you can run this project, you will need:
 
 3. Once the ZIP file is downloaded, extract it to a folder of your choice.
 
-4. Open the command prompt and navigate to the folder where you extracted the files:
-
-    ```bash
-    cd path\to\extracted\folder
-    ```
-
----
-
 #### Install MinGW Compiler
 
-1. Open the command prompt as an administrator.
+1. Go on preferred browser and search up MinGW.
+   
+2. Download from offical website or Souce Forge.
+   
+3. TBH any C++ compiler should work, i'm just using MinGW.
 
-2. Install the MinGW package manager using the following command:
-
-    ```bash
-    winget install -e --id MinGW.Mingw
-    ```
-
-3. Add MinGW to your system path by setting the environment variables:
-    - Press `Win + R`, type `sysdm.cpl`, and hit Enter.
-    - In the System Properties window, go to the **Advanced** tab and click **Environment Variables**.
-    - Under **System variables**, find `Path` and click **Edit**.
-    - Click **New** and add the path to your MinGW `bin` folder (e.g., `C:\MinGW\bin`).
-    - Click **OK** to save and close all dialogs.
-
-4. Verify that MinGW was added successfully by running:
-
-    ```bash
-    g++ --version
-    ```
-
----
 
 #### Compile and Run the Program
 
-1. Navigate to the project directory:
+1. Open project folder in preferred text editor or IDE.
 
-    ```bash
-    cd Fix-My-Corrupt-Windows-main
-    ```
+2. Compile source code (added cmake file for ease of use).
 
-2. Compile the program using the g++ compiler:
+3. Profit!
 
-    ```bash
-    g++ -o FMCW main.cpp logs.cpp shellExecuteInfoAsAdmin.cpp
-    ```
-
-3. After compilation, run the resulting executable:
-
-    ```bash
-    FMCW.exe
-    ```
-
-4. Follow the on-screen prompts to specify your PC's status level and begin the repair process.
-
----
 
 ## Commands Used
 
@@ -178,14 +132,6 @@ This program runs the following commands to fix corrupt Windows files:
 - Ensure you run the program with administrative privileges.
 - Restart your computer after running the program to apply the changes.
 - If you encounter any issues, make sure that SFC and DISM are not corrupted themselves.
-
----
-
-## Troubleshooting
-
-1. **MinGW not found**: If `g++` is not recognized, ensure MinGW is properly installed and added to the system's environment variables.
-   
-2. **Compilation errors**: Ensure all necessary files (`main.cpp`, `logs.cpp`, `shellExecuteInfoAsAdmin.cpp`, and header files) are present in the directory.
 
 ---
 
