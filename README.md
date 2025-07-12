@@ -1,6 +1,6 @@
-# FMCW#
+# FMCW (Last Update: 7/12/25)
 
-[https://github.com/GioMonci/Fix-My-Corrupt-Windows/](https://giomonci.github.io/Fix-My-Corrupt-Windows/)
+[Link to Dowload Page](https://giomonci.github.io/Fix-My-Corrupt-Windows/)
 
 # Quick Install Guide 🎉
 
@@ -23,3 +23,7 @@ Follow these simple steps to get FMCW App up and running:
    - Your FMCW App is now installed and ready to use!
 
 > **Tip:** If you already have .NET 8 installed, you can skip the Setup.exe step and just double-click **FMCW-Installer.msi** in the **Installer** folder. ⚡️
+
+# Why:
+
+This project is to test out C#, Winforms, & MS visual Studio Installer Projects extension.
