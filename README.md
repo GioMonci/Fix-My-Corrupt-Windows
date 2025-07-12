@@ -7,7 +7,7 @@
 Follow these simple steps to get FMCW App up and running:
 
 1. **Download**  
-   - Click the **Download & Install v1.0** button on the website. 📥
+   - Click the **Download** button on the website. 📥
 
 2. **Extract**  
    - Locate **FMCW-Installer.zip** in your _Downloads_ folder.  
